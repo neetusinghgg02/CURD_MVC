@@ -1,0 +1,31 @@
+﻿@model curd_All.Models.EmpModel
+@{
+    ViewBag.Title = "AddEmp";
+}
+
+<h2>AddEmp</h2>
+<style>
+    .error {
+        color: red
+    }
+</style>
+@using (Html.BeginForm("AddEmp", "Emp", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.id)
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.ename, new { @class = "form-control", placeholder = "Enter your name" })
+        @Html.ValidationMessageFor(m => m.ename, "", new { @class = "error" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your name" })
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+    </div>
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.edept, new { @class = "form-control", placeholder = "Enter your name" })
+        @Html.ValidationMessageFor(m => m.edept, "", new { @class = "error" })
+    </div>
+    <button class="btn btn-primary" type="submit">AddEmp</button>
+
+}
+

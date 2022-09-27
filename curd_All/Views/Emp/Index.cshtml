@@ -1,0 +1,28 @@
+﻿@model List<curd_All.Models.EmpModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>Id</th>
+        <th>EName</th>
+        <th>Email</th>
+        <th>Edeprt</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+        <td>@item.id</td>
+        <td>@item.ename</td>
+        <td>@item.Email</td>
+        <td>@item.edept</td>
+            <td><a href="@Url.Action("Delete", "Emp", new {item.id})"class="btn btn-danger">Delete</a></td>
+            <td><a href="@Url.Action("Edit", "Emp", new {item.id})"class="btn btn-primary">Edit</a></td>
+            </tr>
+    }
+</table>
+
